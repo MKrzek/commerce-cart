@@ -1,46 +1,65 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🛒 E-Commerce Cart
 
-## Available Scripts
+A minimal, accessible shopping cart built with React and TypeScript. Submitted as a take-home challenge demonstrating React fundamentals, testing best practices, and accessibility compliance.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **Product List** — 5 hardcoded products with prices
+- **Cart Management** — Add, update quantity, remove, and clear cart
+- **Live Totals** — Real-time price calculation with prevent negative quantities
+- **Persistence** — Cart automatically saved to localStorage
+- **Accessibility** — Full axe accessibility testing with WCAG compliance
+- **Type Safety** — Written in TypeScript with strict mode
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Testing
+- ✅ 25 passing tests covering:
+  - Cart logic (add, update, remove, clear)
+  - Total calculations
+  - localStorage persistence
+  - Component rendering and interaction
+  - **Accessibility compliance** (axe + jest-axe)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm run build`
+## 🧪 Testing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm test              # Watch mode (interactive)
+npm run test:ci       # Single run (CI / pre-commit)
+npm run lint          # Check code quality + accessibility
+npm run lint:fix      # Auto-fix where possible
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Test Coverage
+- **useCart hook** — Core logic tests (add, update, remove, totals, persistence)
+- **CartItem** — Quantity controls, removal, aria-labels
+- **CartTotal** — Total display, singular/plural labels
+- **ProductList** — Rendering, add to cart, "Added ✓" state
+- **App integration** — Full cart flow
+- **Accessibility** — axe scanning with color contrast, button names, heading order
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/
+│   ├── CartItem/              # Individual cart line item
+│   ├── CartTotal/             # Total price + clear button
+│   ├── ProductList/           # Product grid + add to cart
+│   └── EmptyCart/             # Empty state message
+├── hooks/
+│   └── useCart.ts             # Core cart state logic
+├── types/
+│   └── index.ts               # TypeScript interfaces
+├── styles/
+│   └── cart.css               # BEM-structured CSS
+└── App.tsx                    # Main component + hardcoded products
+```
